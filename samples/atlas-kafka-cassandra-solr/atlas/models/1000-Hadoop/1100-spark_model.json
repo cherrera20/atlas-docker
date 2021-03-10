@@ -1,0 +1,816 @@
+{
+  "enumDefs": [],
+  "structDefs": [],
+  "classificationDefs": [
+    {
+      "category": "CLASSIFICATION",
+      "name": "StreamAccess",
+      "description": "Stream Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "JdbcAccess",
+      "description": "JDBC Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "KafkaAccess",
+      "description": "Kafka Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "HBaseAccess",
+      "description": "HBase Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "Fact",
+      "description": "Fact Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "Dimension",
+      "description": "Dimension Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "FsAccess",
+      "description": "FileSystem Classification",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [],
+      "entityTypes": []
+    }
+  ],
+  "entityDefs": [
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_db",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": true
+        },
+        {
+          "name": "clusterName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "description",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "location",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "parameters",
+          "typeName": "map<string,string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "ownerType",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_ml_directory",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "uri",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "directory",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_column",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": true
+        },
+        {
+          "name": "type",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": true
+        },
+        {
+          "name": "nullable",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "metadata",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "comment",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "table",
+          "typeName": "spark_table",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true,
+          "constraints": [
+            {
+              "type": "inverseRef",
+              "params": {
+                "attribute": "columns"
+              }
+            }
+          ]
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_ml_pipeline",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "directory",
+          "typeName": "spark_ml_directory",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "description",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "extra",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_table",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": true
+        },
+        {
+          "name": "db",
+          "typeName": "spark_db",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "tableType",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "sd",
+          "typeName": "spark_storagedesc",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true,
+          "constraints": [
+            {
+              "type": "ownedRef"
+            }
+          ]
+        },
+        {
+          "name": "columns",
+          "typeName": "array<spark_column>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true,
+          "constraints": [
+            {
+              "type": "ownedRef"
+            }
+          ]
+        },
+        {
+          "name": "provider",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "partitionColumnNames",
+          "typeName": "array<string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "bucketSpec",
+          "typeName": "map<string,string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "owner",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "ownerType",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "createTime",
+          "typeName": "date",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "parameters",
+          "typeName": "map<string,string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "comment",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "unsupportedFeatures",
+          "typeName": "array<string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "viewOriginalText",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_storagedesc",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": true
+        },
+        {
+          "name": "location",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "inputFormat",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "outputFormat",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "serde",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "compressed",
+          "typeName": "boolean",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "parameters",
+          "typeName": "map<string,string>",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
+          "name": "table",
+          "typeName": "spark_table",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true,
+          "constraints": [
+            {
+              "type": "inverseRef",
+              "params": {
+                "attribute": "sd"
+              }
+            }
+          ]
+        }
+      ],
+      "superTypes": [
+        "Referenceable"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_ml_model",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "directory",
+          "typeName": "spark_ml_directory",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "description",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "extra",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "DataSet"
+      ]
+    },
+    {
+      "category": "ENTITY",
+      "serviceType": "spark",
+      "name": "spark_process",
+      "description": "",
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "qualifiedName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 1,
+          "valuesMaxCount": 1,
+          "isUnique": true,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "executionId",
+          "typeName": "long",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "currUser",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "remoteUser",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "executionTime",
+          "typeName": "long",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "details",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        },
+        {
+          "name": "sparkPlanDescription",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "Process"
+      ]
+    }
+  ],
+  "relationshipDefs": [
+    {
+      "name": "spark_table_db",
+      "serviceType": "spark",
+      "typeVersion": "1.0",
+      "relationshipCategory": "AGGREGATION",
+      "endDef1": {
+        "type": "spark_table",
+        "name": "db",
+        "isContainer": false,
+        "cardinality": "SINGLE"
+      },
+      "endDef2": {
+        "type": "spark_db",
+        "name": "tables",
+        "isContainer": true,
+        "cardinality": "SET"
+      },
+      "propagateTags": "NONE"
+    },
+    {
+      "name": "spark_table_columns",
+      "serviceType": "spark",
+      "typeVersion": "1.0",
+      "relationshipCategory": "COMPOSITION",
+      "endDef1": {
+        "type": "spark_table",
+        "name": "columns",
+        "isContainer": true,
+        "cardinality": "SET"
+      },
+      "endDef2": {
+        "type": "spark_column",
+        "name": "table",
+        "isContainer": false,
+        "cardinality": "SINGLE"
+      },
+      "propagateTags": "TWO_TO_ONE"
+    }
+  ]
+}

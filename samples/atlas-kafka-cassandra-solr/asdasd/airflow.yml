@@ -1,0 +1,53 @@
+version: '2.2'
+services:
+  airflow:
+    image: containers.mpi-internal.com/scmspain/devops-di--docker-airflow:1.10.14_0.0.13
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    networks:
+      - airflow
+    volumes:
+      - ${AIRFLOW_DAGS}:/opt/airflow/dags
+      - ${AIRFLOW_SQL}:/opt/airflow/sql
+      - ${AIRFLOW_INITSCRIPTS}:/opt/airflow/initscripts
+      - ~/.aws:/opt/airflow/.aws
+      - ~/.kube:/opt/airflow/.kube
+    environment:
+      SINGLE_NODE: "True"
+      INITDB: "True"
+      BACKEND: postgres
+      EXECUTOR: LocalExecutor
+      BACKEND_USER: airflow
+      BACKEND_PASSWORD: yey123456
+      BACKEND_DATABASE: airflow_db
+      BACKEND_HOST: postgres
+      BACKEND_PORT: 5432
+      FERNET_KEY: NXtEyKwp633TUtAgdyoEonj9ufHRI7I33s3wjw3q0yU=
+      AIRFLOW_RUN_INITSCRIPTS: "True"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+      AIRFLOW__CORE__DEFAULT_TIMEZONE: "Europe/Madrid"
+      AIRFLOW__CORE__PARALLELISM: 5
+      AIRFLOW__WEBSERVER__WORKERS: 1
+      AIRFLOW__SCHEDULER__MAX_THREADS: 4
+    command: airflow webserver
+    healthcheck:
+      test: ["CMD-SHELL", "[ -f /opt/airflow/airflow-webserver.pid ]"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  postgres:
+    image: postgres:10
+    ports:
+      - 5432
+    networks:
+      - airflow
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: yey123456
+      POSTGRES_DB: airflow_db
+
+networks:
+  airflow:

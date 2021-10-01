@@ -5,8 +5,11 @@ Content-Type: application/json
 {
   "enumDefs": [],
   "structDefs": [],
-  "classificationDefs": [],
+  "classificationDefs": [
+
+  ],
   "entityDefs": [
+
     {
       "category": "ENTITY",
       "serviceType": "spark",
@@ -26,6 +29,17 @@ Content-Type: application/json
           "includeInNotification": true
         },
         {
+          "name": "db",
+          "typeName": "spark_db",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
           "name": "tableType",
           "typeName": "string",
           "isOptional": true,
@@ -34,7 +48,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "sd",
@@ -48,7 +62,10 @@ Content-Type: application/json
           "includeInNotification": true,
           "constraints": [
             {
-              "type": "ownedRef"
+              "type": "ownedRef",
+              "params": {
+                "attribute": "location"
+              }
             }
           ]
         },
@@ -99,7 +116,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "owner",
@@ -110,7 +127,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "ownerType",
@@ -121,7 +138,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "createTime",
@@ -132,7 +149,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "parameters",
@@ -154,7 +171,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "unsupportedFeatures",
@@ -165,7 +182,7 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         },
         {
           "name": "viewOriginalText",
@@ -176,13 +193,14 @@ Content-Type: application/json
           "valuesMaxCount": 1,
           "isUnique": false,
           "isIndexable": false,
-          "includeInNotification": true
+          "includeInNotification": false
         }
       ],
       "superTypes": [
         "DataSet"
       ]
     }
+
   ]
 }
 

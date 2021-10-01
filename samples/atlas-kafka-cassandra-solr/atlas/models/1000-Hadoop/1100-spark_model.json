@@ -389,6 +389,17 @@
           ]
         },
         {
+          "name": "path",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": true
+        },
+        {
           "name": "columns",
           "typeName": "array<spark_column>",
           "isOptional": true,

@@ -2,47 +2,24 @@ POST http://localhost:21000/api/atlas/v2/relationship
 Authorization: Basic admin admin
 Content-Type: application/json
 
-{
-  "relationshipDefs": [
     {
-      "name": "spark_table_columns",
+      "name": "spark_table_storagedesc",
       "serviceType": "spark",
       "typeVersion": "1.0",
-      "relationshipCategory": "AGGREGATION",
+      "relationshipCategory": "COMPOSITION",
       "endDef1": {
         "type": "spark_table",
-        "name": "columns",
+        "name": "location",
         "isContainer": true,
-        "cardinality": "SET"
-      },
-      "endDef2": {
-        "type": "spark_column",
-        "name": "table",
-        "isContainer": false,
-        "cardinality": "SINGLE"
-      },
-      "propagateTags": "TWO_TO_ONE"
-    },
-    {
-      "name": "spark_table_db",
-      "serviceType": "spark",
-      "typeVersion": "1.0",
-      "relationshipCategory": "AGGREGATION",
-      "endDef1": {
-        "type": "spark_table",
-        "name": "db",
-        "isContainer": false,
         "cardinality": "SINGLE"
       },
       "endDef2": {
-        "type": "spark_db",
-        "name": "tables",
-        "isContainer": true,
-        "cardinality": "SET"
+        "type": "spark_storagedesc",
+        "name": "table2",
+        "isContainer": false,
+        "cardinality": "SINGLE"
       },
       "propagateTags": "NONE"
     }
-  ]
-}
 
 ###
